@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Caregiver</title>
+</head>
+<body>
+    <h1>Cadastro de diarista</h1>
+    <!-- to send the data form to our modelAndView we use th:object  -->
+    <form method="POST" th:object="${form}">
+        <label for="name">Name:</label>
+        <!-- to fill up all fields from model we use th:field -->
+        <input type="text" th:field="*{nome}"> <br>
+        
+        <label for="phone">Phone:</label>
+        <input type="number" th:field="*{phone}"> <br>
+
+        <label for="">CPF:</label>
+        <input type="number" th:field="*{cpf}"> <br>
+
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
