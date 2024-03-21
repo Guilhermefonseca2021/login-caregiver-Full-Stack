@@ -1,4 +1,4 @@
-package com.github.controllers;
+package br.com.store.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.github.dto.CaregiverForm;
+import br.com.store.dto.CaregiverForm;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -22,30 +24,31 @@ public class HomeController {
 
     @GetMapping("/modelmap")
     public String Home2(ModelMap modelMap) {
-        // first way to pass values from the controller to view we have addaAtribute(addname, addvalue)
+        // first way to pass values from the controller to view we have addAtribute(addname, addvalue)
         modelMap.addAttribute("nome", "treinaweb");
         return "home";
     }
 
-    @GetMapping("/modelview")
+    @GetMapping("/modelandview")
     public ModelAndView Home3() {
-        // second way to pass values from the controller to view we have modelandview(addname, addvalue)
+        // i instance a model in a view and put to screen.
         var modelAndView = new ModelAndView("home");
         modelAndView.addObject("nome", "Cleyson");
         return modelAndView;
     }
-
-    @GetMapping("/form")
+    // action not response to receive that, just to send the data view.
+    @GetMapping("/form") 
     public ModelAndView form() {
-        var modelandview = new ModelAndView("login");
-        modelandview.addObject("form", new CaregiverForm());
-        return modelandview;
+        // every view that we want to render we declare inside new ModelAndView
+        var modelAndView = new ModelAndView("form");
+        modelAndView.addObject("form", new CaregiverForm());
+        return modelAndView;
     }
 
     @PostMapping("/form")
     public String form2(CaregiverForm form) {
         System.out.println(form);
-
         return "redirect:/form";
     }
+    
 }

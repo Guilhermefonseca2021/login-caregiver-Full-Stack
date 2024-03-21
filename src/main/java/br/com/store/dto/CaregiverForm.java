@@ -1,4 +1,4 @@
-package com.github.dto;
+package br.com.store.dto;
 
 public class CaregiverForm {
     private String name;
