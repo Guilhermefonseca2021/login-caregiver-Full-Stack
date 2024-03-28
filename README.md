@@ -1,7 +1,5 @@
 # Web service in java
 
-
-
 # Getting Started
 
 ```java
