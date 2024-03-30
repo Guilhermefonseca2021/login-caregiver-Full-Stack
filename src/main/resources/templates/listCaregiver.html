@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list caregivers</title>
+</head>
+<body>
+    <h1>List our caregivers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- th:each its like for each of java -->
+            <tr th:each="caregiver : ${caregiver}">
+                <td th:text="${caregiver.id}"></td>
+                <td th:text="${caregiver.name}"></td>
+                <td th:text="${caregiver.phone}"></td>
+                <td th:text="${caregiver.address}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
